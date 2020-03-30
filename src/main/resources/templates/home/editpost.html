@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Post</title>
+</head>
+<body>
+<div align="center">
+    <h2>Edit Post</h2>
+    <br/>
+    <form action="#" th:action = "@{/save}" th:object="${post}" method = "post" >
+        <table border = "0" cellpadding="12" >
+            <tr>
+                <td>Post title:</td>
+                <td><input type = "text" th:field="*{posttitle}" /></td>
+            </tr>
+            <tr>
+                <td>Post text:</td>
+                <td><input type = "text" th:field="*{posttext}" /></td>
+            </tr>
+                <td>Post editor: </td>
+                <td><span th:utext="${useremail}"></span>
+            </td>
+            <tr>
+                <td align="center" colspan = "2"><button type="submit">Save</button></td>
+            </tr>
+        </table>
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page!</title>
+</head>
+<body>        <span class="navbar-text">
+    <h4>Welcome, <span th:utext="${userName}"></span>!
+    </h4>
+    <div align="center">
+        <h2>Demo blog application</h2>
+        <a href="newpost">Create new Post</a>
+        <br /><br />
+        <h7>
+            <table border = "1">
+            <thead>
+            <tr>
+                <th>Post title</th>
+                <th>Post text</th>
+<!--                <th>Owner</th>-->
+                <th>Action</th>
+            </tr>
+            </thead>
+                <tbody>
+                <tr th:each="post : ${postList}">
+                    <td th:text="${post.posttitle}">Post title</td>
+                    <td th:text="${post.posttext}">Post text</td>
+<!--                    <td th:text="${post.id}">Post id</td>-->
+                    <td>
+                        <a th:href="@{'/edit/' + ${post.id}}">Edit</a>
+                    </td>
+                    <td>
+                    <a th:href="@{'/delete/' + ${post.id}}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </h7>
+    </div>
+
+
+</body>
+</html>
